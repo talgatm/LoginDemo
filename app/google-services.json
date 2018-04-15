@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "790183731456",
+    "firebase_url": "https://logindemo-cd3d3.firebaseio.com",
+    "project_id": "logindemo-cd3d3",
+    "storage_bucket": "logindemo-cd3d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790183731456:android:6b97ecad3163e180",
+        "android_client_info": {
+          "package_name": "kg.shtraf.logindemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790183731456-tf8j06crd64iq12ma4b2lje4b7d1o8u2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVbufBzd0tLO97uH3Hi-459Ly3m-4B4UE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
