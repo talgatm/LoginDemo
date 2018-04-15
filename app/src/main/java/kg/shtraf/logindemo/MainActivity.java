@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 validate(Name.getText().toString(), Password.getText().toString());
-                Toast.makeText(MainActivity.this, Name.getText().toString() + Password.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -87,12 +86,9 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     progressDialog.dismiss();
-                    Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, SecondActivity.class));
-                    checkEmailVerification();
+                      checkEmailVerification();
                 }else{
                      Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(MainActivity.this, Name.getText().toString() + Password.getText().toString(), Toast.LENGTH_SHORT).show();
                     counter--;
                     Info.setText("No of attempts remaining: " + counter);
                     progressDialog.dismiss();
@@ -109,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
     private void checkEmailVerification(){
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
         Boolean emailflag = firebaseUser.isEmailVerified();
-
 
         if(emailflag){
             finish();

@@ -103,7 +103,6 @@ public class RegistrationActivity extends AppCompatActivity{
         return result;
     }
 
-
     private void sendEmailVerification(){
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if(firebaseUser!=null){
@@ -113,10 +112,11 @@ public class RegistrationActivity extends AppCompatActivity{
                      if(task.isSuccessful()){
                         sendUserData();
                         Toast.makeText(RegistrationActivity.this, "Successfully Registered, Verification mail sent!", Toast.LENGTH_SHORT).show();
-                        firebaseAuth.signOut();
-                        finish();
+                      finish();
                         startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
-                    }else{
+                         firebaseAuth.signOut();
+
+                     }else{
                         Toast.makeText(RegistrationActivity.this, "Verification mail has'nt been sent!", Toast.LENGTH_SHORT).show();
                     }
                 }
