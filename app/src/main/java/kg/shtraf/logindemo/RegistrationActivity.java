@@ -51,11 +51,11 @@ public class RegistrationActivity extends AppCompatActivity{
 
                             if(task.isSuccessful()){
                                 sendEmailVerification();
-                                sendUserData();
+                               // sendUserData();
                                 firebaseAuth.signOut();
                                 Toast.makeText(RegistrationActivity.this, "Successfully Registered, Upload complete!", Toast.LENGTH_SHORT).show();
                                 finish();
-                                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                                //startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
                             }else{
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                             }
@@ -110,9 +110,9 @@ public class RegistrationActivity extends AppCompatActivity{
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                      if(task.isSuccessful()){
-                        sendUserData();
+                         finish();
+                         sendUserData();
                         Toast.makeText(RegistrationActivity.this, "Successfully Registered, Verification mail sent!", Toast.LENGTH_SHORT).show();
-                      finish();
                         startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
                          firebaseAuth.signOut();
 
@@ -126,8 +126,8 @@ public class RegistrationActivity extends AppCompatActivity{
 
     private void sendUserData(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getCurrentUser().getUid());
+     //   DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getCurrentUser().getUid());
         UserProfile userProfile = new UserProfile(age, email, name);
-        myRef.setValue(userProfile);
+     //   myRef.setValue(userProfile);
     }
 }

@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void validate(String userName, String userPassword) {
-        startActivity(new Intent(MainActivity.this, SecondActivity.class));
+       // startActivity(new Intent(MainActivity.this, SecondActivity.class));
 
         progressDialog.setMessage("Is running!");
         progressDialog.show();
