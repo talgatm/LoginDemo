@@ -36,6 +36,8 @@ public class SecondActivity extends AppCompatActivity {
     private Button logout;
     Toolbar toolbar;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,17 +91,16 @@ public class SecondActivity extends AppCompatActivity {
                         // do something with the clicked item :D
                         switch (position){
                             case 1 :
-                                startActivity(new Intent(SecondActivity.this, MainActivity.class));
+                                startActivity(new Intent(SecondActivity.this, CheckFine.class));
                                 break;
-                            case 2 :  break;
+                            case 2 :
+
+                               break;
                         }
                     return true;
                     }
                 })
                 .build();
-
-
-
     }
 
     private void Logout(){
