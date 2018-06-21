@@ -76,20 +76,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void validate(String userName, String userPassword) {
+       // startActivity(new Intent(MainActivity.this, SecondActivity.class));
+
         progressDialog.setMessage("Is running!");
         progressDialog.show();
 
         firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
                 if(task.isSuccessful()){
-                    progressDialog.dismiss();
-
                     checkEmailVerification();
-                    Toast.makeText(MainActivity.this, "check email verification", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                }else{
+
                      Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     counter--;
                     Info.setText("No of attempts remaining: " + counter);
@@ -100,7 +98,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
+
     private void checkEmailVerification(){
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
         Boolean emailflag = firebaseUser.isEmailVerified();
