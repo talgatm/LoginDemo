@@ -1,4 +1,4 @@
-package kg.shtraf.logindemo;
+package kg.shtraf.logindemo.model;
 
 public class UserProfile {
     public String userAge;

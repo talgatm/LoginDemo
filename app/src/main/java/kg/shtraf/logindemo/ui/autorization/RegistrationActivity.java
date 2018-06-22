@@ -1,10 +1,11 @@
-package kg.shtraf.logindemo;
+package kg.shtraf.logindemo.ui.autorization;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import kg.shtraf.logindemo.R;
+import kg.shtraf.logindemo.model.UserProfile;
+
 public class RegistrationActivity extends AppCompatActivity{
 
     private EditText userName, userPassword, userEmail, userAge;
@@ -28,7 +32,8 @@ public class RegistrationActivity extends AppCompatActivity{
     private FirebaseAuth firebaseAuth;
     private ImageView userProfilePic;
     String email, name, age, password;
-
+    private Toolbar mToolbar;
+    private TextView mTvToolbarTitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +60,7 @@ public class RegistrationActivity extends AppCompatActivity{
                                 firebaseAuth.signOut();
                                 Toast.makeText(RegistrationActivity.this, "Successfully Registered, Upload complete!", Toast.LENGTH_SHORT).show();
                                 finish();
-                                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                             }else{
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                             }
@@ -69,7 +74,7 @@ public class RegistrationActivity extends AppCompatActivity{
         userLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
             }
         });
 
@@ -83,6 +88,7 @@ public class RegistrationActivity extends AppCompatActivity{
         userLogin = (TextView)findViewById(R.id.tvUserLogin);
         userAge = (EditText)findViewById(R.id.etAge);
         userProfilePic = (ImageView)findViewById(R.id.ivProfile);
+        initToolbar();
     }
 
     private Boolean validate(){
@@ -113,7 +119,7 @@ public class RegistrationActivity extends AppCompatActivity{
                         finish();
                         //sendUserData();
                         Toast.makeText(RegistrationActivity.this, "Successfully Registered, Verification mail sent!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                        startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                         firebaseAuth.signOut();
 
                     }else{
@@ -129,5 +135,24 @@ public class RegistrationActivity extends AppCompatActivity{
         DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getCurrentUser().getUid());
         UserProfile userProfile = new UserProfile(age, email, name);
         myRef.setValue(userProfile);
+    }
+
+    private void initToolbar() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mTvToolbarTitle = (TextView) findViewById(R.id.tvToolbarTitle);
+        mTvToolbarTitle.setText(R.string.registration);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }

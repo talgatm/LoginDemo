@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">LoginDemo</string>
+
+    <string name="request_setting_permissions">Вы отключили некоторые разрешения, включите их в настройках</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_network_message">Ошибка сети</string>
+    <string name="protocol_info">Для проверки неоплаченных штрафов введите номер постановления по фото-видео фиксации или номер административного протокола.</string>
+    <string name="fines_request_type">По номеру постановления</string>
+    <string name="contacts">(0312) 979–242 info@shtraf.kg</string>
+    <string name="toolbar_title">Title toolbar</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="enter">Войти</string>
+    <string name="registration">Регистрация</string>
+    <string name="check_fines">Проверить штрафы</string>
+    <string name="fine_kg">Штраф KG</string>
+    <string name="welcome">Добро пожаловать \nв Shtraf.kg</string>
+    <string name="signed_question">Already Signed in? <b>Login</b></string>
+    <string name="about_app">О приложении</string>
+    <string name="feedbacks">Отзывы</string>
+    <string name="language">Языки</string>
+    <string name="faq">FAQ</string>
+    <string name="logout">Выход</string>
+    <string name="fixate">Зафиксировать нарушение</string>
+
+    <string name="pick_photo_from_camera">Камера</string>
+    <string name="pick_photo_from_gallery">Галерея</string>
+    <string name="send_violation">Отправить нарушение</string>
+    <string name="type_location">Введите местоположение</string>
+    <string name="fill_fields">Заполните поле и выберите фото</string>
+    <string name="success_added">Вы отправили нарушение на рассмотрение</string>
 </resources>

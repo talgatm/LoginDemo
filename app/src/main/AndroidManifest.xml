@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.PERMISSION_CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,22 +16,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".PasswordActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".UpdateProfile" />
-        <activity android:name=".UpdatePassword" />
-        <activity android:name=".CheckFine" />
-        <activity android:name=".RecAdapter" />
-        <activity android:name=".Result" />
-        <activity android:name=".EmployeeList"></activity>
+        <activity
+            android:name=".ui.autorization.UpdatePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.autorization.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.autorization.UpdateProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.autorization.UpdatePassword"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.autorization.LoginActivity" />
+        <activity
+            android:name=".ui.fines.FinesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.autorization.RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.fixation.FixateActivity"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
     </application>
 
 </manifest>
